@@ -1,10 +1,10 @@
 #!/bin/bash
-JAR="jmstoolkit-browserr-jar-with-dependencies.jar"
+JAR="jmstoolkit-browser-jar-with-dependencies.jar"
 COMMAND="-jar $JAR"
 # Set to the directory where your JMS provider jar files are
 #JMS_PROVIDER_DIR=`pwd`/activemq
 if [ "X${JMS_PROVIDER_DIR}" != "X" ]; then
-  for J in `ls lib/*.jar`; do
+  for J in `ls lib/*.jar 2>/dev/null`; do
     CLASSPATH=${J}:${CLASSPATH}
   done
   for J in `ls ${JMS_PROVIDER_DIR}/*.jar`; do
