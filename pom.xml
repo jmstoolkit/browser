@@ -3,6 +3,58 @@
   <groupId>com.jmstoolkit.browser</groupId>
   <artifactId>browser</artifactId>
   <version>1.0.0</version>
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources/saf</directory>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>app.properties</include>
+          <include>jndi.properties</include>
+          <include>logging.properties</include>
+        </includes>
+        <!-- relative to target/classes
+        i.e. ${project.build.outputDirectory} -->
+        <targetPath>..</targetPath>
+      </resource>
+    </resources>
+    <finalName>jmstoolkit-browser</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.4.1</version>
+        <configuration>
+          <!-- get all project dependencies -->
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <!-- MainClass in mainfest make a executable jar -->
+          <archive>
+            <manifest>
+              <mainClass>com.jmstoolkit.queuebrowser.QueueBrowserApp</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <!-- bind to the packaging phase -->
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
   <dependencies>
     <dependency>
       <groupId>commons-logging</groupId>
@@ -38,6 +90,16 @@
       <groupId>org.jdesktop</groupId>
       <artifactId>appframework</artifactId>
       <version>1.0.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-jdk14</artifactId>
+      <version>1.7.25</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.jms</groupId>
+      <artifactId>javax.jms-api</artifactId>
+      <version>2.0.1</version>
     </dependency>
   </dependencies>
 </project>

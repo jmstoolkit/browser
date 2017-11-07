@@ -1,5 +1,5 @@
 #!/bin/bash
-JAR="jmstoolkit-queuebrowser.jar"
+JAR="jmstoolkit-browserr-jar-with-dependencies.jar"
 COMMAND="-jar $JAR"
 # Set to the directory where your JMS provider jar files are
 #JMS_PROVIDER_DIR=`pwd`/activemq
@@ -13,9 +13,9 @@ if [ "X${JMS_PROVIDER_DIR}" != "X" ]; then
   CLASSPATH="`pwd`/${JAR}:${CLASSPATH}"
   echo "CLASSPATH: $CLASSPATH"
   export CLASSPATH
-  COMMAND="com.jmstoolkit.queuebrowser.QueueBrowserApp" 
 fi
 
+COMMAND="com.jmstoolkit.queuebrowser.QueueBrowserApp" 
 JAVA_OPTS="-Djava.util.logging.config.file=logging.properties"
 # Change the name of the properties file:
 #JAVA_OPTS="-Dapp.properties=myfile.props -Djndi.properties=some.props"

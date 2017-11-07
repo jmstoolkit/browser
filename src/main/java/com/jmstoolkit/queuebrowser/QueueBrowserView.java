@@ -127,7 +127,7 @@ public class QueueBrowserView extends FrameView {
 
     // status bar initialization - message timeout, idle icon and busy animation, etc
     ResourceMap resourceMap = getResourceMap();
-    int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
+    int messageTimeout = 10; //resourceMap.getInteger("StatusBar.messageTimeout");
     messageTimer = new Timer(messageTimeout, new ActionListener() {
 
       @Override
@@ -136,7 +136,7 @@ public class QueueBrowserView extends FrameView {
       }
     });
     messageTimer.setRepeats(false);
-    int busyAnimationRate = resourceMap.getInteger("StatusBar.busyAnimationRate");
+    int busyAnimationRate = 10; //resourceMap.getInteger("StatusBar.busyAnimationRate");
     for (int i = 0; i < busyIcons.length; i++) {
       busyIcons[i] = resourceMap.getIcon("StatusBar.busyIcons[" + i + "]");
     }
