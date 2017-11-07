@@ -1,6 +1,6 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.jmstoolkit.browser</groupId>
+  <groupId>com.jmstoolkit</groupId>
   <artifactId>browser</artifactId>
   <version>1.0.0</version>
   <properties>
