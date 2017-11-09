@@ -10,7 +10,7 @@ FS="/"
 CS=":"
 OS="$(uname)"
 case "$OS" in
-"Cygwin-*")
+Cygwin-*|CYGWIN*)
   FS="\\"
   CS=";"
   CYGWIN=1
