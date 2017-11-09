@@ -568,4 +568,24 @@ public class MessageTableRecord implements TextMessage, ObjectMessage {
   public void setProperties(Properties properties) {
     this.properties = properties;
   }
+
+  @Override
+  public long getJMSDeliveryTime() throws JMSException {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  @Override
+  public void setJMSDeliveryTime(long l) throws JMSException {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  @Override
+  public <T> T getBody(Class<T> type) throws JMSException {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  @Override
+  public boolean isBodyAssignableTo(Class type) throws JMSException {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
 }
