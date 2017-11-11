@@ -30,8 +30,8 @@ public class PropertyTableModel extends AbstractTableModel {
    */
   public static final String PROP_DATA = "data";
   private Properties data = new Properties();
-  private PropertyChangeSupport propertySupport;
-  private String[] columnName = new String[]{
+  private final PropertyChangeSupport propertySupport;
+  private final String[] columnName = new String[]{
     "Property",
     "Value"
   };

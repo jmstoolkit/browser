@@ -43,7 +43,7 @@ public class MessageTableModel extends AbstractTableModel implements MessageList
    *
    */
   public static final String PROP_DATA = "data";
-  private List<MessageTableRecord> data = new ArrayList<MessageTableRecord>();
+  private List<MessageTableRecord> data = new ArrayList<>();
   private String[] columnName = new String[]{
     "Timestamp",
     "Message ID",
@@ -191,13 +191,13 @@ public class MessageTableModel extends AbstractTableModel implements MessageList
           result = "";
           break;
         case 4:
-          result = Integer.valueOf(qRecord.getJMSPriority()).toString();
+          result = Integer.toString(qRecord.getJMSPriority());
           break;
         case 5:
-          result = Integer.valueOf(qRecord.getJMSDeliveryMode()).toString();
+          result = Integer.toString(qRecord.getJMSDeliveryMode());
           break;
         case 6:
-          result = Long.valueOf(qRecord.getJMSExpiration()).toString();
+          result = Long.toString(qRecord.getJMSExpiration());
           break;
         case 7:
           result = qRecord.getJMSType();

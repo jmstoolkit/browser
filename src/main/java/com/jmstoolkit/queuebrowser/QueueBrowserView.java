@@ -59,8 +59,8 @@ public class QueueBrowserView extends FrameView {
   private JndiTemplate jndiTemplate;
   private JmsTemplate jmsTemplate;
   private Task browseTask;
-  private List<String> connectionFactoryList = new ArrayList<String>();
-  private List<String> destinationList = new ArrayList<String>();
+  private List<String> connectionFactoryList = new ArrayList<>();
+  private List<String> destinationList = new ArrayList<>();
   private Properties appProperties = new Properties();
   private CachingConnectionFactory connectionFactory;
 
@@ -159,28 +159,34 @@ public class QueueBrowserView extends FrameView {
       @Override
       public void propertyChange(java.beans.PropertyChangeEvent evt) {
         String propertyName = evt.getPropertyName();
-        if ("started".equals(propertyName)) {
-          if (!busyIconTimer.isRunning()) {
-            statusAnimationLabel.setIcon(busyIcons[0]);
-            busyIconIndex = 0;
-            busyIconTimer.start();
-          }
-          progressBar.setVisible(true);
-          progressBar.setIndeterminate(true);
-        } else if ("done".equals(propertyName)) {
-          busyIconTimer.stop();
-          statusAnimationLabel.setIcon(idleIcon);
-          progressBar.setVisible(false);
-          progressBar.setValue(0);
-        } else if ("message".equals(propertyName)) {
-          String text = (String) (evt.getNewValue());
-          statusMessageLabel.setText((text == null) ? "" : text);
-          messageTimer.restart();
-        } else if ("progress".equals(propertyName)) {
-          int value = (Integer) (evt.getNewValue());
-          progressBar.setVisible(true);
-          progressBar.setIndeterminate(false);
-          progressBar.setValue(value);
+        if (null != propertyName) switch (propertyName) {
+          case "started":
+            if (!busyIconTimer.isRunning()) {
+              statusAnimationLabel.setIcon(busyIcons[0]);
+              busyIconIndex = 0;
+              busyIconTimer.start();
+            } progressBar.setVisible(true);
+            progressBar.setIndeterminate(true);
+            break;
+          case "done":
+            busyIconTimer.stop();
+            statusAnimationLabel.setIcon(idleIcon);
+            progressBar.setVisible(false);
+            progressBar.setValue(0);
+            break;
+          case "message":
+            String text = (String) (evt.getNewValue());
+            statusMessageLabel.setText((text == null) ? "" : text);
+            messageTimer.restart();
+            break;
+          case "progress":
+            int value = (Integer) (evt.getNewValue());
+            progressBar.setVisible(true);
+            progressBar.setIndeterminate(false);
+            progressBar.setValue(value);
+            break;
+          default:
+            break;
         }
       }
     });
@@ -625,7 +631,7 @@ public class QueueBrowserView extends FrameView {
 
   private class BrowseQueueTask extends org.jdesktop.application.Task<Object, Void> {
 
-    private List<MessageTableRecord> messages = new ArrayList<MessageTableRecord>();
+    private List<MessageTableRecord> messages = new ArrayList<>();
 
     BrowseQueueTask(org.jdesktop.application.Application app) {
       // Copy GUI state that
@@ -661,7 +667,7 @@ public class QueueBrowserView extends FrameView {
     @Override
     public Object doInJms(Session session, QueueBrowser browser) throws JMSException {
       Enumeration messageEnumerator = browser.getEnumeration();
-      List<MessageTableRecord> messages = new ArrayList<MessageTableRecord>();
+      List<MessageTableRecord> messages = new ArrayList<>();
       while (messageEnumerator.hasMoreElements()) {
         MessageTableRecord qRecord = new MessageTableRecord();
         Message msg = (Message) messageEnumerator.nextElement();
@@ -708,8 +714,8 @@ public class QueueBrowserView extends FrameView {
 
   private class DrainQueueTask extends org.jdesktop.application.Task<Object, Void> {
 
-    private Integer mCount;
-    private JmsTemplate dqJmsTemplate;
+    private final Integer mCount;
+    private final JmsTemplate dqJmsTemplate;
 
     DrainQueueTask(org.jdesktop.application.Application app) {
       // Copy GUI state that
