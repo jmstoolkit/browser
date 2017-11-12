@@ -101,7 +101,7 @@ public class MessageTableModel extends AbstractTableModel implements MessageList
 
   /**
    *
-   * @return
+   * @return True if running
    */
   public Boolean isRunning() {
     return this.running;
@@ -109,7 +109,7 @@ public class MessageTableModel extends AbstractTableModel implements MessageList
 
   /**
    *
-   * @param destination
+   * @param destination JMS Destination
    */
   public void setDestination(Destination destination) {
     listenerContainer.setDestination(destination);
@@ -117,7 +117,7 @@ public class MessageTableModel extends AbstractTableModel implements MessageList
 
   /**
    *
-   * @param connectionFactory
+   * @param connectionFactory JMS ConecctionFactory
    */
   public void setConnectionFactory(ConnectionFactory connectionFactory) {
     listenerContainer.setConnectionFactory(connectionFactory);
@@ -125,7 +125,7 @@ public class MessageTableModel extends AbstractTableModel implements MessageList
 
   /**
    *
-   * @return
+   * @return List of data
    */
   public List getData() {
     return data;
@@ -133,7 +133,7 @@ public class MessageTableModel extends AbstractTableModel implements MessageList
 
   /**
    *
-   * @param value
+   * @param value List of MessageTableRecords
    */
   public void setData(List<MessageTableRecord> value) {
     List oldData = data;
@@ -214,7 +214,7 @@ public class MessageTableModel extends AbstractTableModel implements MessageList
 
   /**
    *
-   * @param message
+   * @param message The message received
    */
   @Override
   public void onMessage(Message message) {

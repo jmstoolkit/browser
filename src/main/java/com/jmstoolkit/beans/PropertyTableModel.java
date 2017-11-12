@@ -50,7 +50,7 @@ public class PropertyTableModel extends AbstractTableModel {
 
   /**
    *
-   * @return
+   * @return the data as Properties
    */
   public Properties getData() {
     return data;
@@ -58,7 +58,7 @@ public class PropertyTableModel extends AbstractTableModel {
 
   /**
    *
-   * @param value
+   * @param value Properties for data
    */
   public void setData(Properties value) {
     Properties oldValue = data;
@@ -68,7 +68,7 @@ public class PropertyTableModel extends AbstractTableModel {
 
   /**
    *
-   * @param listener
+   * @param listener The PropertyChangeListener
    */
   public void addPropertyChangeListener(PropertyChangeListener listener) {
     propertySupport.addPropertyChangeListener(listener);
@@ -76,7 +76,7 @@ public class PropertyTableModel extends AbstractTableModel {
 
   /**
    *
-   * @param listener
+   * @param listener The PropertyChangeListener
    */
   public void removePropertyChangeListener(PropertyChangeListener listener) {
     propertySupport.removePropertyChangeListener(listener);

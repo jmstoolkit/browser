@@ -34,7 +34,7 @@ public class QueueBrowserApp extends SingleFrameApplication {
    * This method is to initialize the specified window by injecting resources.
    * Windows shown in our application come fully initialized from the GUI
    * builder, so this additional configuration is not needed.
-   * @param root
+   * @param root The root java.awt.Window
    */
   @Override
   protected void configureWindow(java.awt.Window root) {
@@ -50,7 +50,7 @@ public class QueueBrowserApp extends SingleFrameApplication {
 
   /**
    * Main method launching the application.
-   * @param args
+   * @param args The command line arguments
    */
   public static void main(String[] args) {
     launch(QueueBrowserApp.class, args);

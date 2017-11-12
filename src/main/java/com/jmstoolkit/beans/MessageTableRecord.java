@@ -46,7 +46,7 @@ public class MessageTableRecord implements TextMessage, ObjectMessage {
 
   /**
    *
-   * @return
+   * @return The JMS message ID
    * @throws JMSException
    */
   @Override
@@ -56,8 +56,8 @@ public class MessageTableRecord implements TextMessage, ObjectMessage {
 
   /**
    *
-   * @param arg0
-   * @throws JMSException
+   * @param arg0 The JMS Message ID
+   * @throws JMSException if the message ID could not be set
    */
   @Override
   public void setJMSMessageID(String arg0) throws JMSException {
@@ -66,8 +66,8 @@ public class MessageTableRecord implements TextMessage, ObjectMessage {
 
   /**
    *
-   * @return
-   * @throws JMSException
+   * @return The JMS message timestemp
+   * @throws JMSException if no timestamp
    */
   @Override
   public long getJMSTimestamp() throws JMSException {
@@ -76,8 +76,8 @@ public class MessageTableRecord implements TextMessage, ObjectMessage {
 
   /**
    *
-   * @param arg0
-   * @throws JMSException
+   * @param arg0 The JMS timestemp
+   * @throws JMSException if JMS error
    */
   @Override
   public void setJMSTimestamp(long arg0) throws JMSException {
@@ -86,8 +86,8 @@ public class MessageTableRecord implements TextMessage, ObjectMessage {
 
   /**
    *
-   * @return
-   * @throws JMSException
+   * @return Byte array for correlation ID
+   * @throws JMSException on JMS error
    */
   @Override
   public byte[] getJMSCorrelationIDAsBytes() throws JMSException {
@@ -96,8 +96,8 @@ public class MessageTableRecord implements TextMessage, ObjectMessage {
 
   /**
    *
-   * @param arg0
-   * @throws JMSException
+   * @param arg0 Byte array for correlation ID
+   * @throws JMSException on JMS error
    */
   @Override
   public void setJMSCorrelationIDAsBytes(byte[] arg0) throws JMSException {
@@ -106,8 +106,8 @@ public class MessageTableRecord implements TextMessage, ObjectMessage {
 
   /**
    *
-   * @param arg0
-   * @throws JMSException
+   * @param arg0 JMS correlation ID string
+   * @throws JMSException on JMS error
    */
   @Override
   public void setJMSCorrelationID(String arg0) throws JMSException {
@@ -116,8 +116,8 @@ public class MessageTableRecord implements TextMessage, ObjectMessage {
 
   /**
    *
-   * @return
-   * @throws JMSException
+   * @return JMS Correlation ID as String
+   * @throws JMSException on JMS error
    */
   @Override
   public String getJMSCorrelationID() throws JMSException {
@@ -126,8 +126,8 @@ public class MessageTableRecord implements TextMessage, ObjectMessage {
 
   /**
    *
-   * @return
-   * @throws JMSException
+   * @return JMS Destination
+   * @throws JMSException on JMS error
    */
   @Override
   public Destination getJMSReplyTo() throws JMSException {
@@ -136,8 +136,8 @@ public class MessageTableRecord implements TextMessage, ObjectMessage {
 
   /**
    *
-   * @param arg0
-   * @throws JMSException
+   * @param arg0 The JMS Destination for automatic reply
+   * @throws JMSException on JMS error
    */
   @Override
   public void setJMSReplyTo(Destination arg0) throws JMSException {
@@ -146,8 +146,8 @@ public class MessageTableRecord implements TextMessage, ObjectMessage {
 
   /**
    *
-   * @return
-   * @throws JMSException
+   * @return The JMS Destination
+   * @throws JMSException on JMS error
    */
   @Override
   public Destination getJMSDestination() throws JMSException {
@@ -156,8 +156,8 @@ public class MessageTableRecord implements TextMessage, ObjectMessage {
 
   /**
    *
-   * @param arg0
-   * @throws JMSException
+   * @param arg0 the JMS Destination
+   * @throws JMSException on JMS error
    */
   @Override
   public void setJMSDestination(Destination arg0) throws JMSException {
